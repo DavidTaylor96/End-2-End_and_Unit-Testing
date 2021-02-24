@@ -46,7 +46,49 @@ describe('calculator', () => {
     cy.get('.display').contains('27')
   })
 
-  it('should')
+  it('should display a decimal numbers', () => {
+    cy.get('#number7').click()
+    cy.get('#operator_add').click()
+    cy.get('#number7').click()
+    cy.get('#operator_divide').click()
+    cy.get('#number5').click()
+    cy.get('#operator_equals').click()
+    cy.get('.display').contains('2.8')
+  })
 
+  it('should display a negative number', () => {
+    cy.get('#number5').click()
+    cy.get('#operator_subtract').click()
+    cy.get('#number7').click()
+    cy.get('#operator_equals').click()
+    cy.get('.display').contains('-2')
+  })
+
+  it('should be a large number', () => {
+    cy.get('#number7').click()
+    cy.get('#number7').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#operator_multiply').click()
+    cy.get('#number5').click()
+    cy.get('#number5').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#operator_equals').click()
+    cy.get('.display').contains('4235000000000')
+  })
+
+  it("can divide by zero and get 'Try Again'", () => {
+    cy.get('#number5').click()
+    cy.get('#operator_divide').click()
+    cy.get('#number0').click()
+    cy.get('#operator_equals').click()
+    cy.get('.display').contains('Try Again')
+  })
 
 })

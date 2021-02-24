@@ -1,5 +1,4 @@
 <template>
-
       <div class="buttons">
         <div class="one">
           <button id='clear' class="clear" @click="clearClick()">C</button>
@@ -23,7 +22,6 @@
           <button id="operator_add" @click="operatorClick('+')">+</button>
         </div>
         </div>
-
 </template>
 
 <script>
