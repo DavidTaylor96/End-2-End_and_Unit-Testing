@@ -59,7 +59,9 @@ describe('App.vue', () => {
     wrapper.vm.operatorClick('+')
     wrapper.vm.numberClick('5')
     wrapper.vm.clearClick()
-    expect(wrapper.vm.runningTotal).to.equal(0)
+    wrapper.vm.numberClick('7')
+    wrapper.vm.operatorClick('=')
+    expect(wrapper.vm.runningTotal).to.equal(17)
 
   })
 
